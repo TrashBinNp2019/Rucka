@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+</head>
+<body>
+  <h1 id="n"></h1>
+  <button id="incr" onclick="Incr()">One More!</button>
+  <button id="upgr" onclick="Upgr()">Upgrade!</button>
+  <a id="eff"></a>
+  <br><br>
+  <i id="alert"> </i><br><br><br>
+  <button id="upgr" onclick="Cheat()"><i>Cheat!</i></button>
+  <script>
+      var N = 0
+      var Add = 1
+      var Cost = 10
+      Upd ();
+      function Incr() {
+        document.getElementById("alert").innerHTML="...";
+        if (Math.random() > 0.1) {
+          N = N + Add
+        } else {
+          N = N - (Add * 2)
+          document.getElementById("alert").innerHTML="Ooops!";
+        }
+        Upd();
+      }
+      function Upgr() {
+        document.getElementById("alert").innerHTML="...";
+        if (N >= Cost) {
+          Add = Add + 1
+          N = N - Cost
+          Cost = Add * 10 * Add
+        } else {
+          document.getElementById("alert").innerHTML="Not Enough!";
+        }
+        Upd();
+      }
+      function Upd() {
+        document.getElementById("n").innerHTML=N;
+        document.getElementById("eff").innerHTML=Add;
+        document.getElementById("upgr").innerHTML="Upgrade! (" + Cost + ")";
+      }
+      function Cheat() {
+        document.getElementById("alert").innerHTML="Umm...";
+        N = N + 1000
+        Upd();
+      }
+  </script>
+</body>
+</html>
